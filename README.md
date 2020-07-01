@@ -1,5 +1,5 @@
 # qMath
- 
+## query-Math
 qMath is an 'Extension' library for providing a fluent interface for various math operations on different C# types.
 
 As of now, its in early stages and i hope i can implement the idea behind it.
