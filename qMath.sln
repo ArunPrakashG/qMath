@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qMath", "qMath\qMath.csproj", "{744BCB02-1333-43E7-8CCB-13A73BF296D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{744BCB02-1333-43E7-8CCB-13A73BF296D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{744BCB02-1333-43E7-8CCB-13A73BF296D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{744BCB02-1333-43E7-8CCB-13A73BF296D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{744BCB02-1333-43E7-8CCB-13A73BF296D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {768C7D53-53AF-44D9-8E16-95432F3C0B87}
+	EndGlobalSection
+EndGlobal
