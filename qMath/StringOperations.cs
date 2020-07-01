@@ -1,16 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace qMath {
 	public static class StringOperations {
-		public static int AsInt(this string stringValue) {
+		public static int AsInteger(this string stringValue) {
 			try {
 				return Convert.ToInt32(stringValue);
 			}
 			catch (Exception) {
 				return -1;
-			}			
+			}
 		}
 
 		public static double AsDouble(this string stringValue) {
@@ -39,5 +37,9 @@ namespace qMath {
 				return -1;
 			}
 		}
+
+		public static bool AsBool(this string stringValue) => stringValue.Equals("true", StringComparison.OrdinalIgnoreCase);
+
+		public static bool AsBool(this string stringValue, StringComparison comparison) => stringValue.Equals("true", comparison);
 	}
 }

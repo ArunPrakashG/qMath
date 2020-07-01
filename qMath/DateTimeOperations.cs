@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace qMath {
 	public static class DateTimeOperations {
@@ -49,5 +47,15 @@ namespace qMath {
 		}
 
 		public static bool IsBefore(this DateTime x, double days) => x.IsBefore(days.AsDaysSpan().AsDateTime());
+
+		public static bool IsAfter(this DateTime x, double days) => x.IsAfter(days.AsDaysSpan().AsDateTime());
+
+		public static DateTime NextFriday(this DateTime x) => x.AddDays(((int) DayOfWeek.Friday - (int) x.DayOfWeek + 7) % 7);
+
+		public static DateTime Next(this DateTime x, DayOfWeek day) => x.AddDays(((int) day - (int) x.DayOfWeek + 7) % 7);
+
+		public static DateTime Previous(this DateTime x, DayOfWeek day) => x.AddDays(- (((int) day - (int) x.DayOfWeek + 7) % 7));
+
+		public static DateTime PreviousFriday(this DateTime x) => x.AddDays(-(((int) DayOfWeek.Friday - (int) x.DayOfWeek + 7) % 7));
 	}
 }
