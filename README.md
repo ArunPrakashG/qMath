@@ -7,4 +7,5 @@ As of now, its in early stages and i hope i can implement the idea behind it.
 ## Roadmap
 
 * Extensions methods for all types.
-* A Query builder. Basically, build a Math operation by parsing a string or by using Extension methods which returns 'Query' Instance with all the previous + the current operation.
+* A Query builder. Basically, build a Math operation by parsing a string or by using Extension methods which returns 'Query' Instance with all the previous + the current operation. This allows to 'construct' a math operation in a fluent typing way.
+
