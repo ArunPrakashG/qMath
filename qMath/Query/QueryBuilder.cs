@@ -1,33 +1,57 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace qMath.Query {
 	public struct QueryBuilder : ICloneable {
-		private readonly int FirstElement;
-		private readonly int SecondElement;
+		private readonly int BaseElementX;
+		private readonly int BaseElementY;
+		private readonly InitialOperation Operation;
 		private int CurrentValue;
 		public int OperationsDone { get; private set; }
 
-		public QueryBuilder(int firstElement, int secondElement) {			
-			FirstElement = firstElement;
-			SecondElement = secondElement;
+		public QueryBuilder(int x, int y, InitialOperation initialOperation) {
+			BaseElementX = x;
+			BaseElementY = y;
 			CurrentValue = 0;
 			OperationsDone = 0;
+			Operation = initialOperation;
+
+			CurrentValue = SetInitialValue(x, y, initialOperation);
 		}
 
-		public object Clone() => new QueryBuilder(FirstElement, SecondElement);
+		private int SetInitialValue(int x, int y, InitialOperation initialOperation) {
+			try {
+				switch (initialOperation) {
+					case InitialOperation.Addition:
+						return x.AddWith(y);
+					case InitialOperation.Subtraction:
+						return y.SubtractFrom(x);
+					case InitialOperation.Multiplication:
+						return x.MultiplyWith(y);
+					case InitialOperation.Division:
+						return x.DivideBy(y);
+					case InitialOperation.Modulus:
+						return x.ModulusBy(y);
+				}
+			}
+			finally {
+				OperationsDone++;
+			}		
+
+			return -1;
+		}
+
+		public object Clone() => new QueryBuilder(BaseElementX, BaseElementY, Operation);
 
 		public int Build() => CurrentValue;
 
 		public QueryBuilder Sum() {
-			CurrentValue = FirstElement + SecondElement;
+			CurrentValue = BaseElementX + BaseElementY;
 			OperationsDone++;
 			return this;
 		}
 
 		public QueryBuilder Product() {
-			CurrentValue = FirstElement * SecondElement;
+			CurrentValue = BaseElementX * BaseElementY;
 			OperationsDone++;
 			return this;
 		}
@@ -39,7 +63,7 @@ namespace qMath.Query {
 		}
 
 		public QueryBuilder Difference() {
-			CurrentValue = FirstElement - SecondElement;
+			CurrentValue = BaseElementX - BaseElementY;
 			OperationsDone++;
 			return this;
 		}
@@ -75,5 +99,13 @@ namespace qMath.Query {
 		}
 
 		//TODO: Add query methods to build up...
+
+		public enum InitialOperation {
+			Addition,
+			Subtraction,
+			Multiplication,
+			Division,
+			Modulus
+		}
 	}
 }
